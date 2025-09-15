@@ -35,7 +35,7 @@ const openExternalLink = (url: string) => {
 
 export function FloatingDock() {
   return (
-    <div className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 md:bottom-6">
+    <div className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 md:bottom-6 hidden md:block">
       <TooltipProvider>
         <Dock direction="middle">
           {/* Group 1 - Personal Logo/Home */}

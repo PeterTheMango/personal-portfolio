@@ -11,10 +11,10 @@ import portfolioData from "@/portfolio_data.json"
 
 export default function Home() {
   return (
-    <div className="relative">
+    <div className="relative min-h-screen">
       <FloatingDock />
       <ScrollArea className="h-screen">
-        <main>
+        <main className="relative">
           <HeroSection 
             personal={portfolioData.personal}
             hero={portfolioData.hero}

@@ -179,11 +179,11 @@ export function AboutSection({ about }: AboutSectionProps) {
   }));
 
   return (
-    <section id="about" className="py-16 md:py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-12 text-center md:mb-16">
+    <section id="about" className="py-12 md:py-24 safe-area-insets">
+      <div className="container mx-auto px-6 sm:px-6 lg:px-8">
+        <div className="mb-8 text-center md:mb-16">
           <h2 className="mb-4 text-2xl font-bold sm:text-3xl md:text-4xl">{about.title}</h2>
-          <p className="mx-auto max-w-2xl text-sm text-muted-foreground sm:text-base">
+          <p className="mx-auto max-w-2xl text-sm text-muted-foreground sm:text-base px-2 sm:px-0">
             {about.subtitle}
           </p>
         </div>

@@ -33,7 +33,7 @@ export function HeroSection({ personal, hero }: HeroSectionProps) {
   return (
     <section
       id="hero"
-      className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden bg-background px-4 sm:px-0"
+      className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden bg-background px-6 sm:px-4 safe-area-insets safe-area-top"
     >
       <InteractiveGridPattern
         width={50}
@@ -44,16 +44,16 @@ export function HeroSection({ personal, hero }: HeroSectionProps) {
           "absolute inset-0 h-full w-full skew-y-3 opacity-40"
         )}
       />
-      <div className="container relative z-10 mx-auto px-4 text-center">
+      <div className="container relative z-10 mx-auto px-2 text-center">
         <div className="mb-4 text-sm font-medium text-muted-foreground sm:text-base md:text-lg lg:text-2xl">
           {personal.greeting}
         </div>
 
-        <h1 className="mb-6 text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+        <h1 className="mb-6 text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl px-2">
           <AuroraText>{personal.name}</AuroraText>
         </h1>
 
-        <div className="mb-8">
+        <div className="mb-8 px-2">
           <TypingAnimation
             text={personal.roles}
             duration={50}
@@ -65,7 +65,7 @@ export function HeroSection({ personal, hero }: HeroSectionProps) {
           {personal.tagline}
         </p>
 
-        <div className="flex flex-col gap-4 px-4 sm:flex-row sm:justify-center sm:gap-6">
+        <div className="flex flex-col gap-4 px-2 sm:flex-row sm:justify-center sm:gap-6">
           {hero.ctas.map((cta, index) => (
             <Button
               key={index}
