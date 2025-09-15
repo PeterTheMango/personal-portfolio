@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -23,10 +23,11 @@ export const metadata: Metadata = {
   description: "A modern personal portfolio showcasing my work and experience",
 };
 
-export const viewport = {
+export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  viewportFit: "cover" as const,
+  // Allows content to extend under iOS notch/home bar; pair with safe-area CSS below
+  viewportFit: "cover",
 };
 
 export default function RootLayout({

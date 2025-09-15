@@ -35,7 +35,6 @@ export function Footer({ personal, footer }: FooterProps) {
   return (
     <footer id="footer" className="w-full bg-background">
       <div className="w-full px-4 py-12 sm:px-6 lg:px-8 md:py-16">
-        
         {/* Two-column layout on lg; stacked on mobile with full width */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 w-full">
           {/* Left Column - Left aligned */}
@@ -44,7 +43,7 @@ export function Footer({ personal, footer }: FooterProps) {
             <h2 className="text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
               <AuroraText>{personal.footerName}</AuroraText>
             </h2>
-            
+
             {/* Subtext (short bio/availability) */}
             <p className="text-muted-foreground max-w-md">
               {personal.availability}
@@ -130,7 +129,11 @@ export function Footer({ personal, footer }: FooterProps) {
                         href={resource.url}
                         target={isDownload ? "_blank" : undefined}
                         rel={isDownload ? "noopener noreferrer" : undefined}
-                        aria-label={isDownload ? `Download ${resource.name}` : `Send ${resource.name}`}
+                        aria-label={
+                          isDownload
+                            ? `Download ${resource.name}`
+                            : `Send ${resource.name}`
+                        }
                       >
                         <Icon className="h-4 w-4 mr-2" />
                         {resource.name}
@@ -140,7 +143,6 @@ export function Footer({ personal, footer }: FooterProps) {
                 })}
               </div>
             </div>
-
           </div>
         </div>
       </div>
