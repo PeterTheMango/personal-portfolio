@@ -1,0 +1,2 @@
+- Refer to @ai-docs/UX_Structure_Portfolio.md when making layout choices and implementation of components.
+- Refer to @ai-docs/UI_Component_Mapping.md to see which component belongs in what section when changing the pages.

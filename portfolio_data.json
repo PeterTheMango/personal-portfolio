@@ -1,0 +1,422 @@
+{
+  "personal": {
+    "name": "Peter Sotomango",
+    "greeting": "Hello 👋, I'm",
+    "roles": "Full Stack Developer • AI Engineer • Researcher",
+    "tagline": "Transforming complex ideas into simple, powerful digital experiences that connect, engage, and inspire.",
+    "availability": "Available for new opportunities and exciting projects. Let's build something amazing together.",
+    "email": "sotomango.23@outlook.com",
+    "footerName": "Peter Sotomango",
+    "copyright": "© 2025 Peter Sotomango. Built with 💕, Next.js, and shadcn/ui, Magic UI, React Bits, animate-ui"
+  },
+  "hero": {
+    "ctas": [
+      {
+        "text": "Explore Projects",
+        "targetSection": "projects",
+        "variant": "default"
+      },
+      {
+        "text": "Contact Me",
+        "targetSection": "contact",
+        "variant": "outline"
+      }
+    ]
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Passionate about creating digital experiences that make a difference",
+    "techSlugs": [
+      "typescript",
+      "javascript",
+      "react",
+      "nextdotjs",
+      "nodedotjs",
+      "html5",
+      "css3",
+      "tailwindcss",
+      "figma",
+      "git",
+      "github",
+      "visualstudiocode",
+      "prisma",
+      "postgresql",
+      "firebase",
+      "vercel",
+      "docker",
+      "microsoftazure",
+      "oracle",
+      "amazonaws",
+      "python",
+      "supabase",
+      "mongodb",
+      "mysql",
+      "java",
+      "bun",
+      "arduino",
+      "espressif",
+      "expo",
+      "express",
+      "spigotmc",
+      "powerbi",
+      "anaconda",
+      "discorddotjs"
+    ],
+    "bounceImages": [
+      "/bento_personal_pitcture.png",
+      "/bento_personal_picture2.png",
+      "/bento_personal_picture3.png",
+      "/bento_personal_picture4.png"
+    ],
+    "features": [
+      {
+        "name": "About Me",
+        "description": "A full-stack developer passionate about creating beautiful, functional, and user-centered digital experiences.",
+        "href": "#contact",
+        "cta": "Get in touch",
+        "icon": "User",
+        "className": "col-span-1 sm:col-span-2 lg:col-span-2"
+      },
+      {
+        "name": "Skills & Expertise",
+        "description": "My technical toolkit and areas of specialization.",
+        "href": "#projects",
+        "cta": "View projects",
+        "icon": "Code",
+        "className": "col-span-1 sm:col-span-1 lg:col-span-1"
+      },
+      {
+        "name": "Beyond Code",
+        "description": "My interests and activities outside of development.",
+        "href": "#contact",
+        "cta": "Let's chat",
+        "icon": "Coffee",
+        "className": "col-span-1 sm:col-span-1 lg:col-span-1",
+        "marqueeText": "GYM ✦ COOKING ✦ MUSIC ✦ COFFEE ✦ TINKERING ✦"
+      },
+      {
+        "name": "Achievements",
+        "description": "Recognition and milestones in my development journey.",
+        "href": "#experience",
+        "cta": "View experience",
+        "icon": "Trophy",
+        "className": "col-span-1 sm:col-span-2 lg:col-span-2",
+        "achievements": [
+          {
+            "title": "5th Place Winner",
+            "event": "Lifelines 2025 Hackathon",
+            "year": "2025",
+            "description": "IoT emergency response system"
+          },
+          {
+            "title": "Top 10 Finalist",
+            "event": "ACT28 AI for Climate",
+            "year": "2024",
+            "description": "AI flood detection system"
+          },
+          {
+            "title": "Innovation Program Finalist",
+            "event": "Qatar Innovation Program",
+            "year": "2025",
+            "description": "Smart food container project"
+          }
+        ]
+      }
+    ]
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "My professional journey across different domains",
+    "tabs": {
+      "professional": [
+        {
+          "id": "ccit_hc",
+          "org": "UDST CCIT Help Center",
+          "position": "Student Assistant",
+          "from": "Sep 2023",
+          "to": "Present",
+          "bullets": [
+            "Support students directly during lab sessions, providing 1:1 guidance on course concepts, troubleshooting assignments, and offering peer tutoring sessions (200+ students served).",
+            "Facilitate the CCIT Help Center, managing bookings, supporting walk-ins/appointments, and ensuring compliance with center policies.",
+            "Lead recap/review sessions for 200+ students, reinforcing key topics to strengthen understanding and improve overall academic performance."
+          ]
+        },
+        {
+          "id": "ccit_col",
+          "org": "UDST & Colombia University",
+          "position": "Research Assistant",
+          "from": "Jul 20235",
+          "to": "Aug 2025",
+          "bullets": [
+            "Conduct desk research on the implementation of AI in Qatar’s healthcare sector, analyzing adoption trends, infrastructure readiness, and regulatory context.",
+            "Evaluated the region’s digital infrastructure, including health data exchange platforms, cloud providers, and training centers, to assess AI integration potential.",
+            "Collaborated with an international research team to produce insights on how emerging technologies can improve healthcare delivery and policy in Qatar."
+          ]
+        },
+        {
+          "id": "cleano",
+          "org": "Cleano LLC",
+          "position": "Software Engineer",
+          "from": "Feb 2025",
+          "to": "Jul 2025",
+          "bullets": [
+            "Built an internal admin-management system in Next.js and Firebase that handles partner integrations, version control, maintenance-mode toggles, and role-based admin access.",
+            "Established GitHub Actions CI/CD pipelines to automatically build, lint, and test on every push to main, reducing deployment errors by ~80% and accelerating release velocity.",
+            "Rewrote and optimized API authentication flow by implementing token caching and simplifying validation logic, reducing average API latency by 50%."
+          ]
+        },
+        {
+          "id": "std_volunteer",
+          "org": "UDST",
+          "position": "Student Volunteer",
+          "from": "2022",
+          "to": "2024",
+          "bullets": [
+            "Supported 10+ large-scale university events (Open Day, Orientation, Graduation, Career Fair, etc.), assisting ~1000+ attendees with registration, campus tours, logistics, and guest services.",
+            "Led and coordinated 15+ volunteers at an international AI symposium, delegating tasks and ensuring smooth event flow across multiple venues.",
+            "Assisted university leaders, prospective students, and parents with inquiries while also curating official social media content to promote engagement."
+          ]
+        },
+        {
+          "id": "ccit",
+          "org": "UDST, College of Computing and IT",
+          "position": "Hardware Lab Assistant",
+          "from": "Mar 2023",
+          "to": "Sep 2023",
+          "bullets": [
+            "Upgrade hardware components on 100+ CCIT lab systems—installing RAM, processors, and peripherals—to maintain optimal performance.",
+            "Maintain software on 100+ CCIT workstations by applying OS updates and configuring software images to ensure system reliability."
+          ]
+        }
+      ],
+      "hackathon": [
+        {
+          "id": "hackathon1",
+          "org": "Qatar Innovation Program",
+          "position": "Team Lead & Innovation Program Participant",
+          "from": "",
+          "to": "Aug 2025",
+          "bullets": [
+            "Led a multidisciplinary team in developing TupperCare, a smart food container that integrates sensors, microcontrollers, and a mobile app to monitor freshness and predict spoilage using machine learning.",
+            "Designed and prototyped the hardware architecture and mobile application, selecting sensors, and building the initial app/device prototype.",
+            "esearched and implemented reliable data transfer methods (MQTT, HTTP) to ensure functionality under limited connectivity, while also pitching the project and advancing to the 2nd round of competition."
+          ]
+        },
+        {
+          "id": "hackathon2",
+          "org": "Lifelines 2025",
+          "position": "5th Place Winner",
+          "from": "",
+          "to": "Feb 2025",
+          "bullets": [
+            "Built an IoT wristband prototype using Arduino/ESP32 and LoRa mesh networking to capture and transmit GPS coordinates of disaster victims to an offline-ready Raspberry Pi hub.",
+            "Co-developed a React Native (Expo) mobile app that visualizes victim locations, assigns rescue squads, and prevents duplicate rescues to improve efficiency during crisis response.",
+            "Optimized device firmware and LoRa payloads to operate within strict memory and bandwidth limits, ensuring reliable long-range communication under low-connectivity conditions."
+          ]
+        },
+        {
+          "id": "hackathon3",
+          "org": "ACT28 AI for Climate",
+          "position": "5th Place Winner",
+          "from": "",
+          "to": "May 2024",
+          "bullets": [
+            "Designed and prototyped Flood Alert, an AI-powered service leveraging neural networks, satellite image recognition, and real-time data to detect flooded zones and integrate alerts into navigation apps (e.g., Google Maps, Waze).",
+            "Demonstrated potential to reduce e-waste from EV battery failures during floods, addressing both climate resilience and sustainability challenges."
+          ]
+        }
+      ],
+      "education": [
+        {
+          "id": "university",
+          "org": "University of Doha for Science & Technology",
+          "position": "B.A.Sc. Data Science and Artificial Intelligence",
+          "from": "Jul 2022",
+          "to": "Jul 2026",
+          "bullets": [
+            "Current CGPA: 3.64 / 4.0",
+            "Relevant Coursework: Machine Learning, Parallel and Distributed Computing, IoT Application Development, Data Visualization and Analytics, Deep Learning, Applied Data Mining, IoT Application Development"
+          ]
+        }
+      ]
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Some of the projects I've worked on recently (PLACEHOLDER PROJECTS FOR LAYOUT)",
+    "items": [
+      {
+        "title": "E-Commerce Platform",
+        "description": "A modern e-commerce solution with React, Node.js, and Stripe integration.",
+        "tech": ["React", "Node.js", "MongoDB", "Stripe"],
+        "liveUrl": "#",
+        "githubUrl": "#",
+        "media": {
+          "type": "video",
+          "src": "https://www.w3schools.com/html/mov_bbb.mp4",
+          "poster": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop"
+        }
+      },
+      {
+        "title": "Task Management App",
+        "description": "A collaborative task management application with real-time updates.",
+        "tech": ["Next.js", "TypeScript", "Prisma", "Socket.io"],
+        "liveUrl": "#",
+        "githubUrl": "#",
+        "media": {
+          "type": "image",
+          "src": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop",
+          "alt": "Task Management Dashboard"
+        }
+      },
+      {
+        "title": "AI Chat Assistant",
+        "description": "An intelligent chat assistant powered by machine learning algorithms.",
+        "tech": ["Python", "TensorFlow", "FastAPI", "React"],
+        "liveUrl": "#",
+        "githubUrl": "#",
+        "media": {
+          "type": "video",
+          "src": "https://www.w3schools.com/html/movie.mp4",
+          "poster": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop"
+        }
+      },
+      {
+        "title": "Data Visualization Dashboard",
+        "description": "Interactive dashboard for visualizing complex data sets with real-time updates.",
+        "tech": ["D3.js", "React", "Node.js", "PostgreSQL"],
+        "liveUrl": "#",
+        "githubUrl": "#",
+        "media": {
+          "type": "image",
+          "src": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
+          "alt": "Data Dashboard Interface"
+        }
+      },
+      {
+        "title": "Mobile Weather App",
+        "description": "Cross-platform mobile app for weather forecasting with location-based services.",
+        "tech": ["React Native", "TypeScript", "Redux", "Weather API"],
+        "liveUrl": "#",
+        "githubUrl": "#",
+        "media": {
+          "type": "image",
+          "src": "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=400&h=300&fit=crop",
+          "alt": "Weather App Interface"
+        }
+      },
+      {
+        "title": "Blockchain Voting System",
+        "description": "Secure and transparent voting system built on blockchain technology.",
+        "tech": ["Solidity", "Web3.js", "React", "Ethereum"],
+        "liveUrl": "#",
+        "githubUrl": "#",
+        "media": {
+          "type": "video",
+          "src": "https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4",
+          "poster": "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop"
+        }
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "subtitle": "What clients and colleagues say about working with me (PLACEHOLDER)",
+    "items": [
+      {
+        "content": "Working with them was an absolute pleasure. The attention to detail and technical expertise exceeded our expectations.",
+        "author": "Sarah Johnson",
+        "role": "Product Manager",
+        "company": "Tech Corp",
+        "avatar": "/api/placeholder/40/40?text=SJ",
+        "initials": "SJ"
+      },
+      {
+        "content": "Delivered a beautiful and functional application that perfectly captured our vision. Highly recommended!",
+        "author": "Mike Chen",
+        "role": "CEO",
+        "company": "Startup Inc",
+        "avatar": "/api/placeholder/40/40?text=MC",
+        "initials": "MC"
+      },
+      {
+        "content": "Exceptional problem-solving skills and great communication throughout the project. A true professional.",
+        "author": "Lisa Rodriguez",
+        "role": "Design Lead",
+        "company": "Creative Agency",
+        "avatar": "/api/placeholder/40/40?text=LR",
+        "initials": "LR"
+      },
+      {
+        "content": "Outstanding work! The project was delivered on time and exceeded all our expectations. Would definitely work with them again.",
+        "author": "David Kim",
+        "role": "CTO",
+        "company": "Innovation Labs",
+        "avatar": "/api/placeholder/40/40?text=DK",
+        "initials": "DK"
+      },
+      {
+        "content": "Incredible attention to user experience and seamless execution. The team's expertise really showed in the final product.",
+        "author": "Emma Wilson",
+        "role": "UX Director",
+        "company": "Design Studio",
+        "avatar": "/api/placeholder/40/40?text=EW",
+        "initials": "EW"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Want to collaborate? Just reach out!",
+    "subtitle": "I'm always excited to discuss new opportunities and interesting projects. Let's build something amazing together.",
+    "email": "sotomango.23@outlook.com",
+    "alternativeText": "Prefer email? Reach me directly at"
+  },
+  "footer": {
+    "social": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/PeterTheMango",
+        "icon": "Github"
+      },
+      {
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/in/pysotomango",
+        "icon": "Linkedin"
+      }
+    ],
+    "navigation": [
+      {
+        "name": "About",
+        "href": "#about"
+      },
+      {
+        "name": "Experience",
+        "href": "#experience"
+      },
+      {
+        "name": "Projects",
+        "href": "#projects"
+      },
+      {
+        "name": "Testimonials",
+        "href": "#testimonials"
+      },
+      {
+        "name": "Contact",
+        "href": "#contact"
+      }
+    ],
+    "resources": [
+      {
+        "name": "Resume",
+        "url": "/resume.pdf",
+        "icon": "Download"
+      },
+      {
+        "name": "Email",
+        "url": "mailto:sotomango.23@outlook.com",
+        "icon": "Mail"
+      }
+    ]
+  }
+}
