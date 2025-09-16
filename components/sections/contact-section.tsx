@@ -57,26 +57,34 @@ export function ContactSection({ contact }: ContactSectionProps) {
   const onSubmit = async (values: FormValues) => {
     setIsSubmitting(true);
     setSubmitError(null);
-    console.log(`Submitted Values: ${values}`);
 
     try {
-      // Simulate API call or use mailto fallback
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // Create mailto link with form data
+      const subject = encodeURIComponent(`Message from ${values.name}`);
+      const body = encodeURIComponent(
+        `Name: ${values.name}\nEmail: ${values.email}\n\nMessage:\n${values.message}`
+      );
+      const mailtoLink = `mailto:${contact.email}?subject=${subject}&body=${body}`;
+
+      // Open mailto link
+      window.location.href = mailtoLink;
 
       // Success - trigger confetti and show toast
       confettiRef.current?.fire();
-      toast.success("Thanks! I'll reply soon.", {
+      toast.success("Opening your email client!", {
         duration: 4000,
       });
 
-      // Reset form
-      form.reset();
+      // Reset form after a short delay
+      setTimeout(() => {
+        form.reset();
+      }, 1000);
     } catch (error) {
       setSubmitError(
-        "Failed to send message. Please try again or contact me directly."
+        "Failed to open email client. Please try again or contact me directly."
       );
       console.error(error);
-      toast.error("Failed to send message");
+      toast.error("Failed to open email client");
     } finally {
       setIsSubmitting(false);
     }

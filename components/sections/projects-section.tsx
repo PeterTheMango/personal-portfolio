@@ -6,6 +6,11 @@ import { ExternalLink, Github as GithubIcon } from "lucide-react";
 import TiltedCard from "@/components/ui/tilted-card";
 import { Marquee } from "@/components/ui/marquee";
 import Image from "next/image";
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "@/components/ui/tooltip";
 
 interface ProjectsSectionProps {
   projects: {
@@ -81,9 +86,49 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
 
                 {/* Content Section */}
                 <div className="flex flex-1 flex-col p-6">
-                  {/* Header Section */}
+                  {/* Header Section with Icons */}
                   <div className="flex-1">
-                    <h3 className="mb-2 text-xl font-bold">{project.title}</h3>
+                    <div className="mb-2 flex items-center justify-between">
+                      <h3 className="text-xl font-bold">{project.title}</h3>
+                      <div className="flex gap-2">
+                        {project.liveUrl && project.liveUrl !== "" && project.liveUrl !== "#" && (
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <Button size="sm" variant="ghost" className="h-8 w-8 p-0" asChild>
+                                <a
+                                  href={project.liveUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  <ExternalLink className="h-4 w-4" />
+                                </a>
+                              </Button>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              Live Demo
+                            </TooltipContent>
+                          </Tooltip>
+                        )}
+                        {project.githubUrl && project.githubUrl !== "" && project.githubUrl !== "#" && (
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <Button size="sm" variant="ghost" className="h-8 w-8 p-0" asChild>
+                                <a
+                                  href={project.githubUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  <GithubIcon className="h-4 w-4" />
+                                </a>
+                              </Button>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              View Source Code
+                            </TooltipContent>
+                          </Tooltip>
+                        )}
+                      </div>
+                    </div>
                     <p className="text-sm text-muted-foreground line-clamp-3">
                       {project.description}
                     </p>
@@ -91,42 +136,13 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
 
                 {/* Tech Stack Marquee */}
                 <div className="my-4 rounded-lg bg-secondary/50 p-2">
-                  <Marquee pauseOnHover className="[--duration:20s]">
+                  <Marquee className="[--duration:20s]">
                     {project.tech.map((tech) => (
                       <Badge key={tech} variant="secondary" className="mx-1">
                         {tech}
                       </Badge>
                     ))}
                   </Marquee>
-                </div>
-
-                {/* Action Buttons */}
-                <div className="flex gap-2">
-                  <Button size="sm" className="flex-1" asChild>
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <ExternalLink className="mr-2 h-4 w-4" />
-                      Live Demo
-                    </a>
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="flex-1"
-                    asChild
-                  >
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <GithubIcon className="mr-2 h-4 w-4" />
-                      Code
-                    </a>
-                  </Button>
                 </div>
                 </div>
               </div>

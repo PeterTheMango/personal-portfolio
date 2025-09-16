@@ -49,11 +49,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <CursorProvider>
-            <Cursor />
-            {children}
-            <Toaster />
-          </CursorProvider>
+          {children}
+          <Toaster />
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />

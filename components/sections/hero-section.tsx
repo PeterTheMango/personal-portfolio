@@ -6,10 +6,14 @@ import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const scrollToSection = (sectionId: string) => {
-  const element = document.getElementById(sectionId);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth", block: "center" });
+const handleCTAClick = (targetSection: string) => {
+  if (targetSection === "resume") {
+    window.open("/peter-yeshua-sotomango-cv.pdf", "_blank");
+  } else {
+    const element = document.getElementById(targetSection);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
   }
 };
 
@@ -71,7 +75,7 @@ export function HeroSection({ personal, hero }: HeroSectionProps) {
               key={index}
               size="lg"
               variant={cta.variant as "default" | "outline"}
-              onClick={() => scrollToSection(cta.targetSection)}
+              onClick={() => handleCTAClick(cta.targetSection)}
               className="shadow-lg text-sm sm:text-base md:text-lg px-6 py-3 md:px-8 md:py-4"
             >
               {cta.text}

@@ -17,8 +17,8 @@
         "variant": "default"
       },
       {
-        "text": "Contact Me",
-        "targetSection": "contact",
+        "text": "View Resume",
+        "targetSection": "resume",
         "variant": "outline"
       }
     ]
@@ -246,33 +246,41 @@
     "subtitle": "Some of the projects I've worked on recently (PLACEHOLDER PROJECTS FOR LAYOUT)",
     "items": [
       {
-        "title": "E-Commerce Platform",
-        "description": "A modern e-commerce solution with React, Node.js, and Stripe integration.",
-        "tech": ["React", "Node.js", "MongoDB", "Stripe"],
-        "liveUrl": "#",
-        "githubUrl": "#",
-        "media": {
-          "type": "video",
-          "src": "https://www.w3schools.com/html/mov_bbb.mp4",
-          "poster": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop"
-        }
-      },
-      {
-        "title": "Task Management App",
-        "description": "A collaborative task management application with real-time updates.",
-        "tech": ["Next.js", "TypeScript", "Prisma", "Socket.io"],
-        "liveUrl": "#",
-        "githubUrl": "#",
+        "title": "Trackly - Landing Page",
+        "description": "Trackly is an intuitive booking management platform designed to simplify day-to-day operations for administrators.",
+        "tech": ["Next.js", "React", "TailwindCSS", "React Bits", "Shadcn"],
+        "liveUrl": "https://trackly-landing.vercel.app/",
+        "githubUrl": "https://github.com/PeterTheMango/trackly-landing",
         "media": {
           "type": "image",
-          "src": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop",
-          "alt": "Task Management Dashboard"
+          "src": "/trackly.png",
+          "alt": "trackly_hero"
         }
       },
       {
-        "title": "AI Chat Assistant",
-        "description": "An intelligent chat assistant powered by machine learning algorithms.",
-        "tech": ["Python", "TensorFlow", "FastAPI", "React"],
+        "title": "Portfolio Page",
+        "description": "A sleek, single-page personal portfolio built with Next.js, showcasing my projects, experience, and personal brand through a modern, responsive design.",
+        "tech": [
+          "Next.js",
+          "TypeScript",
+          "TailwindCSS",
+          "shadcn/ui",
+          "animate-ui",
+          "Magic UI",
+          "React Bits"
+        ],
+        "liveUrl": "https://www.petersotomango.com",
+        "githubUrl": "https://github.com/PeterTheMango/personal-portfolio",
+        "media": {
+          "type": "image",
+          "src": "/portfolio.png",
+          "alt": "portfolio_hero"
+        }
+      },
+      {
+        "title": "TupperCare Firmware",
+        "description": "Firmware code put on the TupperCare sensor units that work alongside the app.",
+        "tech": ["Arduino", "ESP32", "3D Printing", "Electrical Engineering"],
         "liveUrl": "#",
         "githubUrl": "#",
         "media": {
@@ -282,9 +290,15 @@
         }
       },
       {
-        "title": "Data Visualization Dashboard",
-        "description": "Interactive dashboard for visualizing complex data sets with real-time updates.",
-        "tech": ["D3.js", "React", "Node.js", "PostgreSQL"],
+        "title": "Tuppercare App",
+        "description": "TupperCare is an intelligent food storage management app that works alongside our proprietary hardware implementation to revolutionize how you store and monitor your food",
+        "tech": [
+          "Expo",
+          "React Native",
+          "NativeWind",
+          "Firebase",
+          "Machine Learning"
+        ],
         "liveUrl": "#",
         "githubUrl": "#",
         "media": {
@@ -294,8 +308,8 @@
         }
       },
       {
-        "title": "Mobile Weather App",
-        "description": "Cross-platform mobile app for weather forecasting with location-based services.",
+        "title": "SharePrompt",
+        "description": "SharePrompt is an innovative open-source platform that empowers users to discover, create, and share AI prompts with the ChatGPT community.",
         "tech": ["React Native", "TypeScript", "Redux", "Weather API"],
         "liveUrl": "#",
         "githubUrl": "#",
@@ -306,9 +320,15 @@
         }
       },
       {
-        "title": "Blockchain Voting System",
-        "description": "Secure and transparent voting system built on blockchain technology.",
-        "tech": ["Solidity", "Web3.js", "React", "Ethereum"],
+        "title": "Company Admin Dashboard",
+        "description": "Internal tool for managing company staff, transactions, drivers, and associate app settings and marketing flows.",
+        "tech": [
+          "Next.js",
+          "React",
+          "shadcn/ui",
+          "Firebase",
+          "Google Cloud Platform"
+        ],
         "liveUrl": "#",
         "githubUrl": "#",
         "media": {
@@ -409,7 +429,7 @@
     "resources": [
       {
         "name": "Resume",
-        "url": "/resume.pdf",
+        "url": "/peter-yeshua-sotomango-cv.pdf",
         "icon": "Download"
       },
       {
