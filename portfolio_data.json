@@ -243,7 +243,7 @@
   },
   "projects": {
     "title": "Projects",
-    "subtitle": "Some of the projects I've worked on recently (PLACEHOLDER PROJECTS FOR LAYOUT)",
+    "subtitle": "Some of the projects I've worked on recently",
     "items": [
       {
         "title": "Trackly - Landing Page",
@@ -284,9 +284,9 @@
         "liveUrl": "#",
         "githubUrl": "#",
         "media": {
-          "type": "video",
-          "src": "https://www.w3schools.com/html/movie.mp4",
-          "poster": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop"
+          "type": "image",
+          "src": "/tuppercare2.png",
+          "alt": "tuppercare_pic"
         }
       },
       {
@@ -303,20 +303,27 @@
         "githubUrl": "#",
         "media": {
           "type": "image",
-          "src": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
-          "alt": "Data Dashboard Interface"
+          "src": "/tuppercare2.png",
+          "alt": "tuppercare_pic"
         }
       },
       {
-        "title": "SharePrompt",
-        "description": "SharePrompt is an innovative open-source platform that empowers users to discover, create, and share AI prompts with the ChatGPT community.",
-        "tech": ["React Native", "TypeScript", "Redux", "Weather API"],
+        "title": "Lifelines '25 Code Repo",
+        "description": "Code repository that hosts all the code made for Lifelines '25 that includes hardware, app, web servers, and more that make up the entire Smartband project ecosystem.",
+        "tech": [
+          "React Native",
+          "Expo",
+          "Express",
+          "ESP32",
+          "Arduino",
+          "MongoDB"
+        ],
         "liveUrl": "#",
-        "githubUrl": "#",
+        "githubUrl": "https://github.com/PeterTheMango/lifelines25-smartband/tree/main",
         "media": {
           "type": "image",
-          "src": "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=400&h=300&fit=crop",
-          "alt": "Weather App Interface"
+          "src": "/SmartBand.png",
+          "alt": "lifelines_25_pic"
         }
       },
       {
@@ -332,9 +339,9 @@
         "liveUrl": "#",
         "githubUrl": "#",
         "media": {
-          "type": "video",
-          "src": "https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4",
-          "poster": "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop"
+          "type": "image",
+          "src": "/cleano.png",
+          "alt": "cleano_pic"
         }
       }
     ]

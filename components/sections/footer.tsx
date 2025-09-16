@@ -35,8 +35,8 @@ export function Footer({ personal, footer }: FooterProps) {
   return (
     <footer id="footer" className="w-full bg-background">
       <div className="w-full px-4 py-12 sm:px-6 lg:px-8 md:py-16">
-        {/* Two-column layout on lg; stacked on mobile with full width */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 w-full">
+        {/* Responsive layout: single column on mobile, two columns on tablet+ */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
           {/* Left Column - Left aligned */}
           <div className="space-y-4 text-left">
             {/* Name (heading) */}
@@ -55,14 +55,14 @@ export function Footer({ personal, footer }: FooterProps) {
             </p>
           </div>
 
-          {/* Right Column - Right aligned */}
-          <div className="space-y-8 text-right lg:flex lg:flex-col lg:items-end">
+          {/* Right Column - Responsive alignment */}
+          <div className="space-y-8 text-left md:text-right md:flex md:flex-col md:items-end">
             {/* Social links */}
             <div className="space-y-4">
               <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
                 Connect
               </h3>
-              <div className="flex gap-2 justify-end">
+              <div className="flex gap-2 justify-start md:justify-end">
                 {footer.social.map((social, index) => {
                   const Icon = getIcon(social.icon);
                   return (
@@ -93,7 +93,7 @@ export function Footer({ personal, footer }: FooterProps) {
               <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
                 Navigate
               </h3>
-              <div className="flex flex-wrap gap-2 justify-end">
+              <div className="flex flex-wrap gap-2 justify-start md:justify-end">
                 {footer.navigation.map((nav, index) => (
                   <Button
                     key={index}
@@ -113,7 +113,7 @@ export function Footer({ personal, footer }: FooterProps) {
               <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
                 Resources
               </h3>
-              <div className="flex gap-2 justify-end">
+              <div className="flex gap-2 justify-start md:justify-end">
                 {footer.resources.map((resource, index) => {
                   const Icon = getIcon(resource.icon);
                   const isDownload = resource.name === "Resume";
