@@ -8,6 +8,9 @@ import {
   CursorProvider,
 } from "@/components/animate-ui/components/animate/cursor";
 
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -52,6 +55,8 @@ export default function RootLayout({
             <Toaster />
           </CursorProvider>
         </ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
