@@ -3,10 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
-import {
-  Cursor,
-  CursorProvider,
-} from "@/components/animate-ui/components/animate/cursor";
 
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -22,8 +18,42 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Personal Portfolio",
-  description: "A modern personal portfolio showcasing my work and experience",
+  title: "Peter Sotomango • Portfolio",
+  description:
+    "A modern personal portfolio showcasing my work and experience as a Full Stack Engineer, Researcher, and ML Engineer",
+  keywords: [
+    "Peter Sotomango",
+    "Full Stack Engineer",
+    "Researcher",
+    "ML Engineer",
+    "React",
+    "TypeScript",
+    "Next.js",
+    "Portfolio",
+  ],
+  authors: [{ name: "Peter Sotomango" }],
+  creator: "Peter Sotomango",
+  publisher: "Peter Sotomango",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://petersotomango.com",
+    title: "Peter Sotomango • Portfolio",
+    description:
+      "A modern personal portfolio showcasing my work and experience as a Full Stack Engineer, Researcher, and ML Engineer",
+    siteName: "Peter Sotomango Portfolio",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export const viewport: Viewport = {
