@@ -145,7 +145,7 @@
           "id": "ccit_col",
           "org": "UDST & Columbia University",
           "position": "Research Assistant",
-          "from": "Jul 20235",
+          "from": "Jul 2025",
           "to": "Aug 2025",
           "bullets": [
             "Conduct desk research on the implementation of AI in Qatar’s healthcare sector, analyzing adoption trends, infrastructure readiness, and regulatory context.",
@@ -348,47 +348,79 @@
   },
   "testimonials": {
     "title": "Testimonials",
-    "subtitle": "What clients and colleagues say about working with me (PLACEHOLDER)",
+    "subtitle": "What clients and colleagues say about working with me",
     "items": [
       {
-        "content": "Working with them was an absolute pleasure. The attention to detail and technical expertise exceeded our expectations.",
-        "author": "Sarah Johnson",
-        "role": "Product Manager",
-        "company": "Tech Corp",
-        "avatar": "/api/placeholder/40/40?text=SJ",
-        "initials": "SJ"
+        "content": "In my time supervising and later collaborating directly with Peter, I have observed his continual growth, marked by ever-increasing discipline, productivity, and creativity, and I have no doubt he will excel in any endeavor he pursues.",
+        "author": "Mohamed Salah Amine BENOUAR",
+        "role": "CCIT Help Center Supervisor and Lecturer",
+        "company": "University of Doha for Science & Technology",
+        "avatar": "/amine.png",
+        "initials": "MSAB"
       },
       {
-        "content": "Delivered a beautiful and functional application that perfectly captured our vision. Highly recommended!",
-        "author": "Mike Chen",
-        "role": "CEO",
-        "company": "Startup Inc",
-        "avatar": "/api/placeholder/40/40?text=MC",
-        "initials": "MC"
+        "content": "Awesome guy! Made Really good looking discord bot! Everything went super smoothly, and without any problems.",
+        "author": "NiklasDev",
+        "role": "Freelancing Client",
+        "company": "",
+        "avatar": "/niklas.png",
+        "initials": "ND"
       },
       {
-        "content": "Exceptional problem-solving skills and great communication throughout the project. A true professional.",
-        "author": "Lisa Rodriguez",
-        "role": "Design Lead",
-        "company": "Creative Agency",
-        "avatar": "/api/placeholder/40/40?text=LR",
-        "initials": "LR"
+        "content": "Great work, quick and easy to work with and very cheap. Made me a very good discord bot, quick and easy to work with.",
+        "author": "krylotic",
+        "role": "Freelancing Client",
+        "company": "",
+        "avatar": "/krylotic.png",
+        "initials": "K"
       },
       {
-        "content": "Outstanding work! The project was delivered on time and exceeded all our expectations. Would definitely work with them again.",
-        "author": "David Kim",
-        "role": "CTO",
-        "company": "Innovation Labs",
-        "avatar": "/api/placeholder/40/40?text=DK",
-        "initials": "DK"
+        "content": "Extremely professional and very innovative. We gave Peter a task to create a Discord bot with features that have never been made before. Peter managed to develop this bot successfully and transformed our feature ideas into code.",
+        "author": "Warsade",
+        "role": "Freelancing Client",
+        "company": "",
+        "avatar": "",
+        "initials": "W"
       },
       {
-        "content": "Incredible attention to user experience and seamless execution. The team's expertise really showed in the final product.",
-        "author": "Emma Wilson",
-        "role": "UX Director",
-        "company": "Design Studio",
-        "avatar": "/api/placeholder/40/40?text=EW",
-        "initials": "EW"
+        "content": "Amazing and innovative bot developer. Requested a Discord Bot and delivered right on time. Offered to help us setup the bot and made sure everything worked correctly.",
+        "author": "Failures",
+        "role": "Freelancing Client",
+        "company": "",
+        "avatar": "/failures.png",
+        "initials": "F"
+      },
+      {
+        "content": "Peter was contacted to assist us in transferring the files from one place to another, they were very professional. I would definitely work with this person again, and would advise you to do the same if you're looking for a System Admin.",
+        "author": "JSpace",
+        "role": "Freelancing Client",
+        "company": "",
+        "avatar": "/jspace.png",
+        "initials": "JS"
+      },
+      {
+        "content": "Awesome guy, would definitely work with again. He knows what he’s doing and is super fast at it.",
+        "author": "PoliteDev",
+        "role": "Freelancing Client",
+        "company": "",
+        "avatar": "/polite.png",
+        "initials": "PD "
+      },
+      {
+        "content": "Developed a Discord bot for us. I am so amazed at the bot he made for us. Extremely recommended, always give us an update. Very productive, he really know what he's doing.",
+        "author": "StrikesDev",
+        "role": "Freelancing Client",
+        "company": "",
+        "avatar": "strikes.png",
+        "initials": "SD"
+      },
+      {
+        "content": "He is a trustworthy and responsible system administrator who set up and upgraded my servers. He also accepted a lower price which was really generous. He was constanyly communicated and assisted me with things on my end the entire time. Would recommend working with 100%. I even had issues with a few plugins and he decided to assist me with that too for a cheap price, working with him twice in a row has not been a hassle for me and it has been running smoothly.",
+        "author": "TechNxT",
+        "role": "Freelancing Client",
+        "company": "",
+        "avatar": "",
+        "initials": "TN"
       }
     ]
   },

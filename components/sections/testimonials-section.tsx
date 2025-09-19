@@ -1,10 +1,16 @@
-"use client"
+"use client";
 
-import { Card, CardContent } from "@/components/ui/card"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import Autoplay from "embla-carousel-autoplay"
-import { useRef } from "react"
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
 
 interface TestimonialsSectionProps {
   testimonials: {
@@ -21,24 +27,25 @@ interface TestimonialsSectionProps {
   };
 }
 
-export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) {
-  const plugin = useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: true })
-  )
-
+export function TestimonialsSection({
+  testimonials,
+}: TestimonialsSectionProps) {
+  const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: true }));
 
   return (
     <section id="testimonials" className="py-16 md:py-24 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center md:mb-16">
-          <h2 className="mb-4 text-2xl font-bold sm:text-3xl md:text-4xl">{testimonials.title}</h2>
+          <h2 className="mb-4 text-2xl font-bold sm:text-3xl md:text-4xl">
+            {testimonials.title}
+          </h2>
           <p className="mx-auto max-w-2xl text-sm text-muted-foreground sm:text-base">
             {testimonials.subtitle}
           </p>
         </div>
 
         <div className="mx-auto max-w-4xl">
-          <Carousel 
+          <Carousel
             className="w-full"
             plugins={[plugin.current]}
             onMouseEnter={plugin.current.stop}
@@ -52,7 +59,10 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
                       {/* Header with Avatar and Author Info - Tweet card style */}
                       <div className="mb-4 flex items-start space-x-3">
                         <Avatar className="h-12 w-12 flex-shrink-0">
-                          <AvatarImage src={testimonial.avatar} alt={testimonial.author} />
+                          <AvatarImage
+                            src={testimonial.avatar}
+                            alt={testimonial.author}
+                          />
                           <AvatarFallback className="bg-primary/10 text-sm font-semibold">
                             {testimonial.initials}
                           </AvatarFallback>
@@ -62,11 +72,14 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
                             {testimonial.author}
                           </div>
                           <div className="text-sm text-muted-foreground">
-                            {testimonial.role} at {testimonial.company}
+                            {testimonial.role}{" "}
+                            {testimonial.company !== ""
+                              ? "at " + testimonial.company
+                              : ""}
                           </div>
                         </div>
                       </div>
-                      
+
                       {/* Quote Content */}
                       <blockquote className="text-base leading-relaxed tracking-tight">
                         &ldquo;{testimonial.content}&rdquo;
@@ -76,11 +89,11 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="left-0" />
-            <CarouselNext className="right-0" />
+            <CarouselPrevious className="-left-16" />
+            <CarouselNext className="-right-16" />
           </Carousel>
         </div>
       </div>
     </section>
-  )
+  );
 }

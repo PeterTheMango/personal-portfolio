@@ -48,13 +48,14 @@ interface ExperienceSectionProps {
 export function ExperienceSection({ experience }: ExperienceSectionProps) {
   const [selectedOrg, setSelectedOrg] = useState<string>("google");
 
-
   return (
     <section id="experience" className="py-16 md:py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <BlurFade delay={0.1} inView>
           <div className="mb-12 text-center md:mb-16">
-            <h2 className="mb-4 text-2xl font-bold sm:text-3xl md:text-4xl">{experience.title}</h2>
+            <h2 className="mb-4 text-2xl font-bold sm:text-3xl md:text-4xl">
+              {experience.title}
+            </h2>
             <p className="mx-auto max-w-2xl text-sm text-muted-foreground sm:text-base">
               {experience.subtitle}
             </p>
@@ -141,7 +142,8 @@ function ExperienceTabContent({
                     <div className="min-w-0 flex-1">
                       <div className="font-medium text-sm">{item.org}</div>
                       <div className="text-xs text-muted-foreground mt-1">
-                        {item.from} - {item.to}
+                        {item.from !== "" && item.from ? item.from + " - " : ""}
+                        {item.to}
                       </div>
                     </div>
                   </div>
@@ -209,7 +211,10 @@ function ExperienceTabContent({
                 </Badge>
                 <Badge variant="secondary" className="flex items-center gap-1">
                   <Calendar className="h-3 w-3" />
-                  {selectedData.from} - {selectedData.to}
+                  {selectedData.from !== "" && selectedData.from
+                    ? selectedData.from + " - "
+                    : ""}
+                  {selectedData.to}
                 </Badge>
               </div>
             </div>
