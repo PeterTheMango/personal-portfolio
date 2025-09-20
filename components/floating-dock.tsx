@@ -21,6 +21,7 @@ import {
   Github,
   Linkedin,
 } from "lucide-react";
+import Image from "next/image";
 
 const scrollToSection = (sectionId: string) => {
   const element = document.getElementById(sectionId);
@@ -38,6 +39,22 @@ export function FloatingDock() {
     <div className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 md:bottom-6 hidden md:block">
       <TooltipProvider>
         <Dock direction="middle">
+          <DockIcon>
+            <Button
+              variant="ghost"
+              size="icon"
+              className={cn(
+                buttonVariants({ variant: "ghost", size: "icon" }),
+                "size-12 rounded-full"
+              )}
+            >
+              <Image src="/mango.svg" alt="mango_logo" width={24} height={24} />
+            </Button>
+          </DockIcon>
+
+          {/* Separator */}
+          <Separator orientation="vertical" className="h-full py-2" />
+
           {/* Group 1 - Personal Logo/Home */}
           <DockIcon>
             <Tooltip>
