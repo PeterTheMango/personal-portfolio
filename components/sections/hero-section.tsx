@@ -1,6 +1,6 @@
 "use client";
 
-import { TypingAnimation } from "@/components/ui/typing-animation";
+import TextType from "@/components/TextType";
 import { AuroraText } from "@/components/ui/aurora-text";
 import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern";
 import { Button } from "@/components/ui/button";
@@ -58,9 +58,12 @@ export function HeroSection({ personal, hero }: HeroSectionProps) {
         </h1>
 
         <div className="mb-8 px-2">
-          <TypingAnimation
+          <TextType
             text={personal.roles}
-            duration={50}
+            typingSpeed={50}
+            pauseDuration={1500}
+            showCursor={true}
+            cursorCharacter="|"
             className="text-lg text-muted-foreground sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl"
           />
         </div>
