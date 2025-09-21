@@ -33,7 +33,10 @@ export function TestimonialsSection({
   const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: true }));
 
   return (
-    <section id="testimonials" className="py-16 md:py-24 bg-muted/30">
+    <section
+      id="testimonials"
+      className="py-16 md:py-24 bg-muted/30 overflow-hidden"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center md:mb-16">
           <h2 className="mb-4 text-2xl font-bold sm:text-3xl md:text-4xl">
