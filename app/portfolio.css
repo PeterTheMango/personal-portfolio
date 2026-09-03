@@ -1,0 +1,1043 @@
+/* ---------------------------------------------------------------------------
+   Peter Sotomango — portfolio design system
+   Values are transcribed from ai-docs/DESIGN.md (the contract). Do not
+   re-derive or approximate anything here.
+   --------------------------------------------------------------------------- */
+
+/* §2 Color ---------------------------------------------------------------- */
+:root {
+  --pf-ink: #12192b;
+  --pf-ink-2: #333e52;
+  --pf-ink-3: #3f4a5e;
+  --pf-muted: #5c6779;
+  --pf-muted-2: #7b8698;
+  --pf-muted-3: #9aa4b4;
+  --pf-accent: #1f3d6b;
+  --pf-accent-deep: #152b4d;
+  --pf-surface: #fbfcfe;
+  --pf-page: #f2f5fa;
+
+  --pf-border: oklch(0.4 0.06 255 / 0.16);
+  --pf-border-panel: oklch(0.4 0.06 255 / 0.18);
+  --pf-border-image: oklch(0.4 0.06 255 / 0.14);
+  --pf-hover-tint: oklch(0.36 0.09 255 / 0.09);
+  --pf-hover-tint-row: oklch(0.36 0.09 255 / 0.07);
+  --pf-underline: oklch(0.36 0.09 255 / 0.55);
+  --pf-underline-footer: oklch(0.36 0.09 255 / 0.6);
+  --pf-dot: oklch(0.4 0.06 250 / 0.08);
+
+  /* Contribution graph intensity ramp, built on --pf-accent */
+  --pf-level-0: oklch(0.4 0.06 255 / 0.07);
+  --pf-level-1: oklch(0.72 0.05 255 / 0.55);
+  --pf-level-2: oklch(0.6 0.08 255 / 0.7);
+  --pf-level-3: oklch(0.47 0.1 255 / 0.85);
+  --pf-level-4: #1f3d6b;
+
+  /* §4 Elevation — the only two shadows in the system */
+  --pf-shadow-card: 0 1px 2px oklch(0.4 0.06 255 / 0.06),
+    0 12px 28px -18px oklch(0.4 0.06 255 / 0.3);
+  --pf-shadow-button: 0 1px 2px oklch(0.36 0.09 255 / 0.35);
+
+  /* §8 Configuration as shipped: bgIntensity 1.5 */
+  --amp: 1.5;
+}
+
+/* §5 Base — page color, dot grid, film grain -------------------------------- */
+body {
+  margin: 0;
+  font-family: var(--font-inter), Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: var(--pf-ink);
+  background-color: var(--pf-page);
+  background-image: radial-gradient(var(--pf-dot) 1px, transparent 1.4px);
+  background-size: 22px 22px;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  /* dot-grid drift: 4.5% parallax against scroll */
+  background-position: 0 calc(var(--sy, 0px) * 0.045);
+  letter-spacing: normal;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E");
+}
+
+a {
+  color: var(--pf-ink);
+}
+a:hover {
+  color: var(--pf-accent);
+}
+
+/* §5 Atmosphere — wash + parallax cloud fields ------------------------------ */
+.om-atmos {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+  filter: hue-rotate(calc(var(--sp, 0) * 16deg));
+}
+
+.om-wash {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+      120% 70% at 8% -10%,
+      oklch(0.87 0.06 240 / 0.85),
+      transparent 60%
+    ),
+    radial-gradient(90% 55% at 95% 4%, oklch(0.9 0.045 215 / 0.75), transparent 60%),
+    radial-gradient(80% 50% at 50% 112%, oklch(0.88 0.05 250 / 0.6), transparent 65%);
+  background-repeat: no-repeat;
+  animation: omhue 30s ease-in-out infinite alternate;
+}
+
+@keyframes omhue {
+  0% {
+    filter: hue-rotate(-12deg) saturate(0.92);
+  }
+  35% {
+    filter: hue-rotate(8deg) saturate(1.16);
+  }
+  70% {
+    filter: hue-rotate(20deg) saturate(1.02);
+  }
+  100% {
+    filter: hue-rotate(-4deg) saturate(1.2);
+  }
+}
+
+.om-field {
+  position: absolute;
+  left: -22%;
+  right: -22%;
+  top: -24vh;
+  height: 340vh;
+  will-change: transform;
+}
+.om-f1 {
+  transform: translate3d(0, calc(var(--sp, 0) * var(--amp, 1) * -95vh), 0);
+}
+.om-f2 {
+  transform: translate3d(0, calc(var(--sp, 0) * var(--amp, 1) * -165vh), 0);
+}
+.om-f3 {
+  transform: translate3d(0, calc(var(--sp, 0) * var(--amp, 1) * -235vh), 0);
+}
+
+.om-cloud {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(46px);
+  will-change: transform;
+}
+
+@keyframes omdrift {
+  from {
+    transform: translate3d(-7%, -1.5%, 0);
+  }
+  to {
+    transform: translate3d(7%, 1.5%, 0);
+  }
+}
+@keyframes omdrift2 {
+  from {
+    transform: translate3d(6%, 1.5%, 0);
+  }
+  to {
+    transform: translate3d(-6%, -1.5%, 0);
+  }
+}
+
+/* Footer cool-down veil */
+.om-veil {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-image: linear-gradient(
+    180deg,
+    transparent 34%,
+    oklch(0.64 0.05 255 / 0.5) 100%
+  );
+  opacity: calc(var(--sp, 0) * 0.85);
+}
+
+/* §5 Bottom blur (progressive reveal) -------------------------------------- */
+.om-blur-stack {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 150px;
+  pointer-events: none;
+  z-index: 4;
+  opacity: clamp(0, calc((0.99 - var(--sp, 0)) * 5.5), 1);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.om-blur {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+.om-blur-1 {
+  height: 150px;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  mask-image: linear-gradient(to top, #000 0%, #000 34%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 34%, transparent 100%);
+}
+.om-blur-2 {
+  height: 100px;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  mask-image: linear-gradient(to top, #000 0%, #000 25%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 25%, transparent 100%);
+}
+.om-blur-3 {
+  height: 56px;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  background-image: linear-gradient(
+    to top,
+    oklch(0.96 0.008 250 / 0.55),
+    transparent
+  );
+  mask-image: linear-gradient(to top, #000 0%, #000 20%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 20%, transparent 100%);
+}
+
+/* §5 Reduced motion --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .om-cloud,
+  .om-wash {
+    animation: none !important;
+  }
+  .om-field {
+    transform: none !important;
+  }
+}
+
+/* Anchor navigation --------------------------------------------------------
+   Header and hero links (#work, #about, #careerboard, #studygenius) used to
+   teleport the viewport. Smooth scrolling gives the jump a direction; the
+   scroll-margin keeps a section from landing flush against the top edge.
+   Under reduced motion the instant jump is the right fallback, not a slower
+   animation, so the rule is gated rather than softened. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.pf-hero,
+.pf-work,
+.pf-card[id] {
+  scroll-margin-top: 32px;
+}
+
+/* §4 Layout ----------------------------------------------------------------- */
+.pf-root {
+  position: relative;
+  z-index: 1;
+  color: var(--pf-ink);
+  min-height: 100vh;
+}
+
+.pf-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 72px) 56px;
+}
+
+/* §3 Typography — section label (the only uppercase, tracked, accent text) */
+.pf-label {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--pf-accent);
+}
+
+.pf-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.pf-caption {
+  font-size: 12.5px;
+  color: var(--pf-muted-2);
+}
+
+/* §6 Header ----------------------------------------------------------------- */
+.pf-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 26px 0 0;
+  flex-wrap: wrap;
+}
+
+.pf-wordmark {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.pf-nav {
+  display: flex;
+  gap: 4px;
+  font-size: 13.5px;
+  color: var(--pf-muted);
+}
+
+.pf-nav-link {
+  text-decoration: none;
+  padding: 6px 11px;
+  border-radius: 7px;
+  color: var(--pf-muted);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.pf-nav-link:hover {
+  background: var(--pf-hover-tint);
+  color: var(--pf-ink);
+}
+
+.pf-nav-link--disabled {
+  color: var(--pf-muted-3);
+}
+.pf-nav-link--disabled:hover {
+  background: var(--pf-hover-tint);
+  color: var(--pf-muted);
+}
+
+.pf-resume {
+  text-decoration: none;
+  padding: 6px 11px;
+  border-radius: 7px;
+  background: var(--pf-accent);
+  color: var(--pf-surface);
+  box-shadow: var(--pf-shadow-button);
+  transition: background-color 0.15s ease;
+}
+.pf-resume:hover {
+  background: var(--pf-accent-deep);
+  color: var(--pf-surface);
+}
+
+/* §6 Hero ------------------------------------------------------------------- */
+.pf-hero {
+  padding: clamp(44px, 7vw, 68px) 0 0;
+  max-width: 730px;
+}
+
+.pf-memoji {
+  width: 132px;
+  height: 132px;
+  display: block;
+  object-fit: contain;
+  background: transparent;
+}
+
+.pf-h1 {
+  margin: 26px 0 0;
+  font-size: clamp(28px, 4.4vw, 38px);
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.032em;
+  text-wrap: pretty;
+}
+
+.pf-lede {
+  margin: 22px 0 0;
+  font-size: clamp(15px, 1.6vw, 16px);
+  line-height: 1.68;
+  color: var(--pf-ink-3);
+  text-wrap: pretty;
+}
+
+/* §6 Inline link */
+.pf-link {
+  color: var(--pf-ink);
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--pf-underline);
+}
+.pf-link--footer {
+  border-bottom-color: var(--pf-underline-footer);
+}
+
+/* §6 Contact chip */
+.pf-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 26px;
+  font-size: 13px;
+  color: var(--pf-muted);
+}
+
+.pf-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  text-decoration: none;
+  padding: 7px 13px;
+  border: 1px solid var(--pf-border-panel);
+  border-radius: 8px;
+  color: var(--pf-muted);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.pf-chip:hover {
+  border-color: var(--pf-accent);
+  color: var(--pf-ink);
+}
+
+/* §6 Work card -------------------------------------------------------------- */
+.pf-work {
+  padding: clamp(56px, 8vw, 80px) 0 0;
+}
+
+.pf-work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-top: 18px;
+  align-items: stretch;
+}
+
+.pf-card {
+  border: 1px solid var(--pf-border);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--pf-surface);
+  box-shadow: var(--pf-shadow-card);
+  transition: border-color 0.15s ease;
+}
+.pf-card:hover {
+  border-color: var(--pf-accent);
+}
+
+.pf-card-media {
+  position: relative;
+  height: 232px;
+  border-bottom: 1px solid var(--pf-border-image);
+}
+.pf-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Anchor to the top so the app header and page title survive the crop. */
+  object-position: top left;
+  display: block;
+}
+
+/* Placeholder standing in for a screenshot the owner has yet to supply. */
+.pf-card-media--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--pf-muted-3);
+  background: var(--pf-page);
+}
+
+.pf-card-body {
+  padding: 18px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.pf-card-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.pf-card-title {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.pf-card-year {
+  font-size: 12.5px;
+  color: var(--pf-muted-3);
+}
+
+.pf-card-desc {
+  margin: 9px 0 0;
+  font-size: 14.5px;
+  line-height: 1.62;
+  color: var(--pf-ink-3);
+  text-wrap: pretty;
+}
+
+.pf-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.pf-card-status {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--pf-muted-3);
+}
+
+.pf-card-state {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  color: var(--pf-muted-2);
+}
+.pf-card-state::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--pf-accent);
+  display: block;
+}
+
+/* §6 Experience rail -------------------------------------------------------- */
+.pf-section {
+  padding: clamp(48px, 7vw, 64px) 0 0;
+}
+
+.pf-rail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(210px, 1fr);
+  margin-top: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  padding-bottom: 6px;
+}
+
+.pf-rail-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  transition: background-color 0.15s ease, transform 0.12s ease;
+}
+.pf-rail-item:hover {
+  background: var(--pf-hover-tint-row);
+}
+/* The only control on the page whose result renders somewhere else (the panel,
+   below the rail and often below the fold), so the press is worth confirming.
+   0.985 rather than the usual 0.97 — anything deeper reads as a different
+   design language against surfaces this flat. */
+@media (prefers-reduced-motion: no-preference) {
+  .pf-rail-item:active {
+    transform: scale(0.985);
+  }
+}
+
+.pf-rail-date {
+  font-size: 12.5px;
+  color: var(--pf-muted-3);
+  letter-spacing: -0.005em;
+}
+
+.pf-rail-rule {
+  display: block;
+  position: relative;
+  height: 1px;
+  margin: 12px 0 16px;
+  background: var(--pf-border-panel);
+}
+/* First and last rules fade out at the outer edge so the timeline reads as
+   continuing beyond the rail. */
+.pf-rail-rule--first {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 8%,
+    oklch(0.4 0.06 255 / 0.18) 50% 100%
+  );
+}
+.pf-rail-rule--last {
+  background: linear-gradient(
+    90deg,
+    oklch(0.4 0.06 255 / 0.18) 0 50%,
+    rgba(0, 0, 0, 0) 92%
+  );
+}
+.pf-rail-rule::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  margin-left: -4.5px;
+  top: -4px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--pf-surface);
+  border: 1.5px solid var(--pf-accent);
+  display: block;
+}
+
+.pf-rail-role {
+  display: block;
+  padding: 0 16px;
+  font-size: 14.5px;
+  font-weight: 500;
+  letter-spacing: -0.012em;
+  text-wrap: pretty;
+}
+
+.pf-rail-org {
+  display: block;
+  margin-top: 3px;
+  padding: 0 16px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--pf-muted);
+  text-wrap: pretty;
+}
+
+/* §6 Detail panel ----------------------------------------------------------- */
+/* The panel collapses instead of unmounting: appearing from nothing used to
+   shove "Also built", the commit graph and the footer down the page in a single
+   frame, which is the one hard snap in the design (against DESIGN.md §7.6).
+   Same curve and duration in both directions, so it leaves the way it arrived. */
+.pf-panel-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  visibility: hidden;
+  transition: grid-template-rows 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    /* held back until the collapse finishes, so the fade is never cut short */
+      visibility 0s linear 0.2s;
+}
+.pf-panel-wrap[data-open="true"] {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
+  transition: grid-template-rows 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear;
+}
+
+/* min-height: 0 lets the 0fr row actually reach zero inside a grid. */
+.pf-panel-clip {
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* Reduced motion keeps the fade but drops the height travel — gentler, not
+   nothing, since the panel still needs to read as arriving. */
+@media (prefers-reduced-motion: reduce) {
+  .pf-panel-wrap {
+    transition: opacity 0.15s linear, visibility 0s linear 0.15s;
+  }
+  .pf-panel-wrap[data-open="true"] {
+    transition: opacity 0.15s linear, visibility 0s linear;
+  }
+}
+
+.pf-panel {
+  margin-top: 18px;
+  border: 1px solid var(--pf-border-panel);
+  border-radius: 14px;
+  background: var(--pf-surface);
+  padding: 22px 24px;
+}
+
+.pf-panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.pf-panel-title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.pf-panel-close {
+  font-size: 12.5px;
+  color: var(--pf-muted-3);
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font-family: inherit;
+  transition: color 0.15s ease;
+}
+.pf-panel-close:hover {
+  color: var(--pf-ink);
+}
+
+.pf-panel-meta {
+  display: block;
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--pf-muted-2);
+}
+
+.pf-panel-body {
+  margin: 14px 0 0;
+  font-size: 14.5px;
+  line-height: 1.62;
+  color: var(--pf-ink-2);
+  text-wrap: pretty;
+}
+
+/* §6 "Also built" row ------------------------------------------------------- */
+.pf-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.pf-row {
+  display: grid;
+  grid-template-columns: 64px minmax(140px, 200px) 1fr 52px;
+  gap: 16px;
+  align-items: center;
+  padding: 12px 10px;
+  margin: 0 -10px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+.pf-row:hover {
+  background: var(--pf-hover-tint-row);
+}
+
+.pf-row-thumb {
+  position: relative;
+  height: 44px;
+  border-radius: 7px;
+  overflow: hidden;
+  border: 1px solid var(--pf-border);
+}
+.pf-row-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pf-row-title {
+  font-size: 14.5px;
+  font-weight: 500;
+}
+
+.pf-row-desc {
+  font-size: 13.5px;
+  color: var(--pf-muted);
+}
+
+.pf-row-year {
+  font-size: 12px;
+  color: var(--pf-muted-3);
+  text-align: right;
+}
+
+/* Commit history ------------------------------------------------------------ */
+.pf-chart-link {
+  font-size: 12.5px;
+  color: var(--pf-muted-2);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.pf-chart-link:hover {
+  color: var(--pf-ink);
+}
+
+.pf-chart-frame {
+  margin-top: 18px;
+  border: 1px solid var(--pf-border);
+  border-radius: 14px;
+  background: var(--pf-surface);
+  padding: 20px;
+}
+@media (max-width: 700px) {
+  .pf-chart-frame {
+    overflow-x: auto;
+  }
+}
+
+/* Contribution graph — Sunday-first columns of 7 day cells, full-bleed */
+.pf-graph {
+  width: 100%;
+  --pf-cell-gap: 3px;
+}
+
+.pf-graph-months,
+.pf-graph-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: var(--pf-cell-gap);
+}
+
+.pf-graph-months {
+  margin-bottom: 6px;
+  font-size: 10.5px;
+  line-height: 1;
+  color: var(--pf-muted-3);
+}
+.pf-graph-month {
+  overflow: visible;
+  white-space: nowrap;
+}
+
+.pf-graph-grid {
+  grid-template-rows: repeat(7, auto);
+}
+
+.pf-graph-cell {
+  aspect-ratio: 1;
+  border-radius: 2px;
+  background: var(--pf-level-0);
+  outline: 1px solid oklch(0.4 0.06 255 / 0.06);
+  outline-offset: -1px;
+}
+.pf-graph-cell[data-level="1"] {
+  background: var(--pf-level-1);
+}
+.pf-graph-cell[data-level="2"] {
+  background: var(--pf-level-2);
+}
+.pf-graph-cell[data-level="3"] {
+  background: var(--pf-level-3);
+}
+.pf-graph-cell[data-level="4"] {
+  background: var(--pf-level-4);
+}
+.pf-graph-cell[data-level="empty"] {
+  background: transparent;
+  outline: none;
+}
+
+/* Day tooltip — CSS only, mirrors GitHub's placement above the cell */
+.pf-graph-cell[data-tip] {
+  position: relative;
+}
+.pf-graph-cell[data-tip]:hover {
+  outline: 1px solid var(--pf-accent);
+  outline-offset: 1px;
+}
+.pf-graph-cell[data-tip]::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 7px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  padding: 5px 9px;
+  border-radius: 7px;
+  background: var(--pf-accent-deep);
+  color: #fff;
+  font-size: 11.5px;
+  line-height: 1.35;
+  white-space: nowrap;
+  box-shadow: var(--pf-shadow-card);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.12s ease;
+  pointer-events: none;
+}
+.pf-graph-cell[data-tip]::before {
+  content: "";
+  position: absolute;
+  bottom: calc(100% + 3px);
+  left: 50%;
+  z-index: 5;
+  width: 7px;
+  height: 7px;
+  transform: translateX(-50%) rotate(45deg);
+  background: var(--pf-accent-deep);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.12s ease;
+  pointer-events: none;
+}
+.pf-graph-cell[data-tip]:hover::after,
+.pf-graph-cell[data-tip]:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+/* First column's tooltip would run off the left edge, last off the right */
+.pf-graph-grid .pf-graph-cell:nth-child(-n + 7)::after {
+  left: 0;
+  transform: none;
+}
+.pf-graph-grid .pf-graph-cell:nth-last-child(-n + 7)::after {
+  left: auto;
+  right: 0;
+  transform: none;
+}
+
+.pf-graph-footer {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.pf-graph-stats {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+.pf-graph-stats div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.pf-graph-stats dt {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--pf-muted-3);
+}
+.pf-graph-stats dd {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--pf-ink);
+}
+
+.pf-graph-legend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--pf-muted-3);
+}
+.pf-graph-legend .pf-graph-cell {
+  width: 11px;
+  height: 11px;
+}
+.pf-graph-legend span:first-child {
+  margin-right: 2px;
+}
+.pf-graph-legend span:last-child {
+  margin-left: 2px;
+}
+
+.pf-chart-empty {
+  min-width: 0;
+  font-size: 13.5px;
+  color: var(--pf-muted-2);
+  text-align: center;
+}
+
+/* Below ~700px the fluid cells get too small to read — scroll instead */
+@media (max-width: 700px) {
+  .pf-graph {
+    min-width: 620px;
+  }
+}
+
+
+/* Footer -------------------------------------------------------------------- */
+.pf-footer {
+  padding: clamp(56px, 8vw, 76px) 0 0;
+}
+
+.pf-footer-inner {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.pf-footer-statement {
+  margin: 0;
+  max-width: 440px;
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+.pf-footer-meta {
+  font-size: 12.5px;
+  color: var(--pf-muted-3);
+}
+
+/* Scroll reveal (experiment) ------------------------------------------------
+   Not part of the DESIGN.md contract — §7.1 says content does not animate in
+   or out. Ships off; enable per-visit with ?reveal=1 (?reveal=0 to disable).
+
+   The hidden state is scoped to [data-reveal-root], which only the boot script
+   sets, and only when JS runs and prefers-reduced-motion is not "reduce". With
+   JS off, or for a crawler, nothing here applies and the page renders as-is.
+   The curve is the system's own (DESIGN.md §7.6). */
+[data-reveal-root="on"] [data-reveal] {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+}
+[data-reveal-root="on"] [data-reveal][data-revealed="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+/* Everything on screen at load resolves in the first observer pass; killing the
+   transition for that frame keeps the fold from animating. */
+[data-reveal-boot] [data-reveal] {
+  transition: none !important;
+}
+
+/* Siblings cross the threshold together, so they stagger rather than pop as a
+   block. Capped at four steps — beyond that the last item reads as late. */
+[data-reveal-root="on"] .pf-work-grid > [data-reveal]:nth-child(2),
+[data-reveal-root="on"] .pf-list > [data-reveal]:nth-child(2) {
+  transition-delay: 0.045s;
+}
+[data-reveal-root="on"] .pf-work-grid > [data-reveal]:nth-child(3),
+[data-reveal-root="on"] .pf-list > [data-reveal]:nth-child(3) {
+  transition-delay: 0.09s;
+}
+[data-reveal-root="on"] .pf-work-grid > [data-reveal]:nth-child(n + 4),
+[data-reveal-root="on"] .pf-list > [data-reveal]:nth-child(n + 4) {
+  transition-delay: 0.135s;
+}

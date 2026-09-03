@@ -1,33 +1,42 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Toaster } from "@/components/ui/sonner";
 
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+import { REVEAL_STORAGE_KEY, scrollReveal } from "@/components/portfolio/config";
+
+// DESIGN.md §3 — Inter 400/500/600/700, self-hosted via next/font.
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// Resolves the scroll-reveal experiment before first paint, so content is never
+// painted visible and then hidden. Off unless config.ts says otherwise or the
+// visitor passed ?reveal=1; never on under prefers-reduced-motion.
+const revealBootScript = `(function(){try{
+var d=document.documentElement,k=${JSON.stringify(REVEAL_STORAGE_KEY)},s=null;
+var q=new URLSearchParams(location.search).get("reveal");
+if(q==="1"||q==="0"){s=q;try{localStorage.setItem(k,q)}catch(e){}}
+else{try{s=localStorage.getItem(k)}catch(e){}}
+var on=s===null?${scrollReveal}:s==="1";
+if(on&&!matchMedia("(prefers-reduced-motion: reduce)").matches){d.setAttribute("data-reveal-root","on")}
+}catch(e){}})()`;
 
 export const metadata: Metadata = {
   title: "Peter Sotomango • Portfolio",
   description:
-    "A modern personal portfolio showcasing my work and experience as a Full Stack Engineer, Researcher, and ML Engineer",
+    "Engineer and researcher. I build software, then study whether it actually helps. Final-year Data Science and AI at UDST, based in Doha.",
   keywords: [
     "Peter Sotomango",
-    "Full Stack Engineer",
+    "Software Engineer",
     "Researcher",
-    "ML Engineer",
-    "React",
-    "TypeScript",
+    "Data Science",
+    "Artificial Intelligence",
     "Next.js",
     "Portfolio",
   ],
@@ -40,7 +49,7 @@ export const metadata: Metadata = {
     url: "https://petersotomango.com",
     title: "Peter Sotomango • Portfolio",
     description:
-      "A modern personal portfolio showcasing my work and experience as a Full Stack Engineer, Researcher, and ML Engineer",
+      "Engineer and researcher. I build software, then study whether it actually helps.",
     siteName: "Peter Sotomango Portfolio",
   },
   robots: {
@@ -59,8 +68,9 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  // Allows content to extend under iOS notch/home bar; pair with safe-area CSS below
+  // Allows content to extend under iOS notch/home bar; pair with safe-area CSS.
   viewportFit: "cover",
+  themeColor: "#f2f5fa",
 };
 
 export default function RootLayout({
@@ -69,19 +79,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    // The boot script stamps data-reveal-root on <html> before hydration, so the
+    // server markup deliberately differs by that one attribute. Scoped to this
+    // element's own attributes — children are still checked normally.
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-          <Toaster />
-        </ThemeProvider>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: revealBootScript }} />
+      </head>
+      <body className={inter.variable}>
+        {children}
         <Analytics />
         <SpeedInsights />
       </body>
